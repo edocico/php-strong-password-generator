@@ -2,19 +2,17 @@
 
 $number = $_GET['number'] ?? null;
 
-$letters = "abcdefghijklmnopqrstxywuvz";
+$symbols = "abcdefghijklmnopqrstxywuvz123456789";
 
-var_dump($letters);
-var_dump($letters[4]);
-var_dump(strlen($letters));
 
-function getRandomPassword($chosenNum, $lettersPull) {
+
+function getRandomPassword($chosenNum, $symbolsList) {
 
     $password = [];
 
     while (count($password) < $chosenNum) {
-        $random = rand(0, strlen($lettersPull) - 1);
-        $password[] = $lettersPull[$random];
+        $random = rand(0, strlen($symbolsList) - 1);
+        $password[] = $symbolsList[$random];
     };
 
     return $password;
@@ -44,7 +42,7 @@ function getRandomPassword($chosenNum, $lettersPull) {
     </div>
 
     <div class="password">
-        <p><span>La tua password é :</span> <?php echo implode(getRandomPassword($number, $letters))?></p>
+        <p><span>La tua password é :</span> <?php echo implode(getRandomPassword($number, $symbols))?></p>
     </div>
     
 </body>
