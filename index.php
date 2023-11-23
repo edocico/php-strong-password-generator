@@ -9,7 +9,9 @@ var_dump($letters)
 function getrandompassword($chosenNum, $lettersPull) {
 
     $password = [];
-    while
+    while (count($password < $chosenNum)) {
+        
+    }
 }
  
 ?>
