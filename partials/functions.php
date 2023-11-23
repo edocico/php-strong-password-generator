@@ -10,6 +10,8 @@ function getRandomPassword($chosenNum, $symbolsList) {
     };
 
     return $password;
+
+    
 }; 
 
 ?>

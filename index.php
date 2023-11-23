@@ -1,13 +1,17 @@
 <?php
 
+session_start();
+$_SESSION['name'] = 'Edoardo';
 $number = $_GET['number'] ?? null;
 
-$symbols = "abcdefghijklmnopqrstxywuvz123456789";
+$symbols = "abcdefghijklmnopqrstxywuvz123456789?!@#&%ABCDEFGHIJKLMNOPQRSTUWXYZ";
 
 
 require_once __DIR__ . '/partials/functions.php';
-
-
+if ($number) {
+    $_SESSION['password'] = implode(getRandomPassword($number, $symbols));
+    header('Location: ./password.php');  
+}
  
 ?>
 
@@ -32,9 +36,8 @@ require_once __DIR__ . '/partials/functions.php';
         </form> 
     </div>
 
-    <div class="password">
-        <p><span>La tua password é :</span> <?php echo implode(getRandomPassword($number, $symbols))?></p>
-    </div>
+   
+   
     
 </body>
 </html>
